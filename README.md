@@ -22,7 +22,7 @@ yarn add smartfswatch
 ```
 
 ## Usage
-
+Here's a basic example of how to use SmartFSWatch:
 ```javascript
 
 const SmartFSWatch = require('smartfswatch');
