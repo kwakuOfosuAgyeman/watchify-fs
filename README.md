@@ -57,16 +57,16 @@ watcher.close();
 
 
 ## API
-**Constructor**: new SmartFSWatch(paths, options)
-**Parameters**:
-*paths*: String or array of strings. Paths to watch.
-*options*: Object (optional). Options for the watcher.
-*throttleTime*: Integer. Time in milliseconds to throttle change events. Default is 500ms.
-*batchTime*: Integer. Time in milliseconds to batch events. Default is 1000ms.
-**Events**:
-*change*: Emitted for individual file change events. Provides an event object.
-*batch*: Emitted for batched events. Provides an array of event objects.
-*error*: Emitted when an error occurs.
+- **Constructor**: new SmartFSWatch(paths, options)
+- **Parameters**:
+ - *paths*: String or array of strings. Paths to watch.
+ - *options*: Object (optional). Options for the watcher.
+ - *throttleTime*: Integer. Time in milliseconds to throttle change events. Default is 500ms.
+ - *batchTime*: Integer. Time in milliseconds to batch events. Default is 1000ms.
+- **Events**:
+ - *change*: Emitted for individual file change events. Provides an event object.
+ - *batch*: Emitted for batched events. Provides an array of event objects.
+ - *error*: Emitted when an error occurs.
 
 ## Contributing
 Contributions are always welcome! Feel free to open an issue or submit a pull request.
