@@ -33,7 +33,10 @@ class SmartFSWatch extends EventEmitter {
 
         this.watchers.push(watcher);
       } catch (error) {
-        this.emit('error', new Error(`Failed to watch path: ${path}. Error: ${error.message}`));
+        process.nextTick(() => {
+          this.emit('error', new Error(`Failed to watch path: ${path}. Error: ${error.message}`));
+        });
+        
       }
     });
 
@@ -48,6 +51,11 @@ class SmartFSWatch extends EventEmitter {
   close() {
     clearInterval(this.interval);
     this.watchers.forEach((watcher) => watcher.close());
+    this.interval = null; // Clear the reference
+  }
+
+  init() {
+    process.nextTick(() => this.startWatching());
   }
 }
 

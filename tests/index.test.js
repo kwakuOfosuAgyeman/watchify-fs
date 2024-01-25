@@ -50,11 +50,15 @@ describe('SmartFSWatch', () => {
     const invalidPath = '/nonexistent';
     watcher = new SmartFSWatch(invalidPath);
   
-    watcher.on('error', (error) => {
+    const onError = (error) => {
       expect(error).toBeDefined();
       expect(error.message).toContain('Failed to watch path');
       watcher.close();
+      watcher.removeListener('error', onError);  // Remove listener to prevent multiple calls
       done();
-    });
+    };
+  
+    watcher.on('error', onError);
+    watcher.init();
   });
 });
